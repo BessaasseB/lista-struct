@@ -15,7 +15,7 @@ void dataInput(){
     
     int i;
 
-    for (i = 0; i < 2; i++)
+    for (i = 0; i < 10; i++)
     {
         printf("Informe a marca do veiculo %d: ", i+1);
         fgets(veiculos[i].marca, 20, stdin);
@@ -36,38 +36,43 @@ void dataOutput(){
 
     int i;
 
-    for (i = 0; i < 2; i++)
+    for (i = 0; i < 10; i++)
     {
         printf("Marca do veiculo %d: %s",i+1, veiculos[i].marca);
+        printf("Modelo do veiculo %d: %s",i+1, veiculos[i].modelo);
+        printf("Cor do veiculo %d: %s",i+1, veiculos[i].cor);
+        printf("Motorizacao do veiculo %d: %s",i+1, veiculos[i].motorizacao);
+        printf("O veiculo %d possui &d portas: %s",i+1, veiculos[i].portas);
     }
     
-        
-
 }
 
 int main(void){
 
-    int opt;
+    int opt, i;
 
-    printf("ESCOLHA UMA OPCAO\n");
-    printf("[1] Inserir dados\n");
-    printf("[2] Mostrar dados\n");
-    scanf("%d", &opt);
-    fflush(stdin);
+    do{
+        printf("ESCOLHA UMA OPCAO\n");
+        printf("[1] Inserir dados\n");
+        printf("[2] Mostrar dados\n");
+        scanf("%d", &opt);
+        fflush(stdin);
 
-    switch (opt)
-    {
-    case 1:
-        dataInput();
-        break;
+        switch (opt)
+        {
+        case 1:
+            dataInput();
+            break;
 
-    case 2:
-        dataOutput();
-        break;
+        case 2:
+            dataOutput();
+            break;
 
-    default:
-        break;
-    }
+        default:
+            break;
+        }
+    }while(opt == 1 || opt == 2);
+        
 
     
     return 0;
